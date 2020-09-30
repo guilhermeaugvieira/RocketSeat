@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Java Script</title>
+</head>
+<body>
+    <div id ="app">
+        
+    </div>
+    <script>
+        var linkElement = document.createElement('a');
+        linkElement.setAttribute('href', 'https://rocketseat.com.br');
+        linkElement.setAttribute('title','Site da RocketSite');
+        linkElement.setAttribute('name','linkReferencia');
+
+        var textElement = document.createTextNode('Acessar site RocketSeat');
+        linkElement.appendChild(textElement);
+
+        var containerElement = document.querySelector('#app');
+        containerElement.appendChild(linkElement);
+
+        var removedElement = document.querySelector('a[name=linkReferencia]');
+        containerElement.removeChild(linkElement);
+    </script>
+</body>
+</html>

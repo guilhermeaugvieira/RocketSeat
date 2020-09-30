@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Java Script</title>
+</head>
+<body>
+    <div id ="app">
+        <input type="text" name="nome" id="nome" class="nome"/>
+        <button class="botao">Adicionar</button>
+    </div>
+    <script>
+        //Várias maneiras de pegar a informação de um elemento da DOM
+        
+        //Retorna somente um elemento
+        //var inputElement = document.getElementById('nome');
+        var inputElement = document.querySelector('input[name=nome]');
+        //var inputElement = document.querySelector('div#app input');
+        
+        //Retorna um vetor de elementos
+        //var inputElement = document.getElementsByTagName('input')[0];
+        //var inputElement = document.getElementsByClassName('nome');
+        //console.log(inputElement);
+
+        //Maneira de ativar função sem colocar a função no botão
+        var btnElement = document.querySelector('button.botao')
+
+        btnElement.onclick = function(){
+            var text = inputElement.value;
+
+            alert(text);
+        }
+    </script>
+</body>
+</html>

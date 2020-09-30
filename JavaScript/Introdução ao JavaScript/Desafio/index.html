@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Java Script</title>
+</head>
+<body>
+    <input type="number" name="numInicio" id="numInicio" step="1" value="1" min="1" max="10" />
+    <input type="number" name="numFinal" id="numFinal" step="1" value="2" min="2" max="10" />
+
+    <button onclick=pares(numInicio.value,numFinal.value) value="Calclular"></button>
+
+    <script>
+        var endereco = {
+            rua: "A",
+            numero: 35,
+            bairro: "B",
+            cidade: "C",
+            uf: "MG",
+        };
+
+        var habilidades = ["Javascript","React Js","React Native"];
+
+        var anosEstudo = 6;
+
+        var usuarios = [
+            {
+                nome: "Diego",
+                habilidades: ["Javascript", "ReactJS", "Redux"],
+            },
+
+            {
+                nome: "Gabriel",
+                habilidades : ["VueJS", "Ruby on Rails", "Elixir"],
+
+            },
+        ];
+
+        function pares(x, y){            
+            for(i=x; i<=y; i++) console.log(i);
+        }
+
+        function experiencia(anosEstudo){
+            if(anosEstudo>6) console.log("Jedi Master");
+            else if(anosEstudo>3) console.log("Avançado");
+            else if(anosEstudo>=1) console.log("Intermediário");
+            else console.log("Iniciante");
+        }
+        
+        experiencia(anosEstudo);
+        
+        console.log("O usuário mora em " + endereco.cidade + " / " + endereco.uf + " , no bairro " + endereco.bairro + 
+            ", na rua \"" + endereco.rua + "\" com nº " + endereco.numero);
+
+        if(habilidades.includes("Javascript")) console.log("Inclui o parâmetro da pesquisa");
+        else console.log("Parâmetro não escontrado");
+
+        //Novo método para juntar os resultados de um vetor
+        for(i = 0; i < usuarios.length; i++){
+            console.log("O " + usuarios[i].nome + " possui as habilidades: " + usuarios[i].habilidades.join());
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Java Script</title>
+</head>
+<body>
+    <button name="btnQuadrado" id="btnQuadrado">Adicionar quadrado</button>
+    <br/>    
+    <div id ="app">
+        <h1>Quadrados</h1>
+        <div id="quadradosGerados"></div>
+
+        <h1>Nomes</h1>
+        <input type="text" name="txtNomeInserir" id="txtNomeInserir"/>
+        <button id="btnAddNome" name="btnAddNome">Adicionar Nome</button>
+        <div id="nomes">
+            <ul id="nomesInseridos"></ul>
+        </div>
+    </div>
+    <script>
+        var container = document.querySelector('div#app div#quadradosGerados');
+        var botaoAddQuadrado = document.querySelector('button#btnQuadrado');
+        var nomes = ["Diego","Gabriel","Lucas"];
+        var lista = document.querySelector('div#app div#nomes ul#nomesInseridos');
+        var nomeDigitado = document.querySelector('div#app input#txtNomeInserir');
+        var botaoAddNome = document.querySelector('div#app button#btnAddNome');
+
+        //Coloca os nomes por padrão
+        for(var i=0;i<nomes.length;i++){
+            var item = document.createElement('li');
+            var textItem = document.createTextNode(nomes[i]);
+
+            item.setAttribute('name','inseridoFixo');
+            item.setAttribute('id','inserido'+lista.childElementCount);
+            
+            item.appendChild(textItem);
+
+            lista.appendChild(item);
+        }
+
+        //Retorna a cor de forma randômica
+        function getRandomColor(){
+            var letters = "0123456789ABCDEF";
+            var color = '#';
+            for(var i=0;i<6;i++){
+                color+=letters[Math.floor(Math.random() * 16)];
+            }
+
+            return color;
+        }
+
+        //Evento do botão ao ser clicado
+        function addQuadrado(container){
+            var quadrado = document.createElement('div');
+            quadrado.style.width='100px';
+            quadrado.style.height='100px';
+            quadrado.style.backgroundColor='#f00';
+            quadrado.style.marginLeft='15px';
+            quadrado.style.marginTop='15px';
+            quadrado.style.position='relative';
+            quadrado.style.display='inline-block';
+            quadrado.setAttribute('name','quadradoGerado');
+            quadrado.addEventListener('mouseover',function(){
+                this.style.backgroundColor=getRandomColor();
+                console.log(this.style.backgroundColor);
+            });
+
+            container.appendChild(quadrado);
+        }
+
+        botaoAddQuadrado.onclick = function(){addQuadrado(container)};        
+
+        botaoAddNome.onclick = function(){
+            var item = document.createElement('li');
+            var textItem = document.createTextNode(nomeDigitado.value);
+
+            item.setAttribute('name','inseridoManual');
+            item.setAttribute('id','inserido'+lista.childElementCount);
+
+            item.appendChild(textItem);
+
+            lista.appendChild(item);
+        }
+       
+    </script>
+</body>
+</html>
