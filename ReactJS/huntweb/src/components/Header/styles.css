@@ -9,3 +9,14 @@ header#main-header{
     justify-content: center;
     align-items:center;
 }
+
+header#main-header a{
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.5s;
+}
+
+header#main-header a:hover{
+    margin-top: -10px;
+}
