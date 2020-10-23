@@ -38,8 +38,7 @@ export default class Main extends Component {
     this.loadProducts(pageNumber);
   };
 
-  renderItem = ({item}) => {
-    const {navigation} = this.props;
+  renderItem = (item, navigation) => {
     return (
       <View style={styles.productContainer}>
         <Text style={styles.productTitle}>{item.title}</Text>
@@ -65,7 +64,7 @@ export default class Main extends Component {
           contentContainerStyle={styles.list}
           data={this.state.docs}
           keyExtractor={(item) => item._id}
-          renderItem={this.renderItem.bind(navigation)}
+          renderItem={({item}) => this.renderItem(item, navigation)}
           onEndReached={this.loadMore}
           onEndReachedThreshold={0.1}
         />
